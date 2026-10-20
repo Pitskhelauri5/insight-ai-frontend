@@ -764,26 +764,22 @@
 
         // --- SIMULATE EXTRACTION ANIMATION ---
        async function runExtraction() {
-    // 1. ვრთავთ სკანირების ანიმაციას
     document.getElementById('scanner-laser').classList.remove('hidden');
     document.getElementById('scanner-overlay').classList.remove('hidden');
     
-    // ვამზადებთ ფაილს (თუ ფაილი არაა ატვირთული, ვიყენებთ სადემონსტრაციოს)
     const fileInput = document.getElementById('file-input');
     let formData = new FormData();
     
     if (fileInput.files.length > 0) {
         formData.append("file", fileInput.files[0]);
     } else {
-        // თუ ფაილი არ აუტვირთია, ვუგზავნით სატესტო ტექსტს
         const blob = new Blob(["BILL OF LADING\nShipper: Kakheti Wine Export Ltd\nConsignee: Berlin Logistics GmbH\nTotal: $5,400 USD"], { type: "text/plain" });
         formData.append("file", blob, "sample_bol.txt");
     }
 
     try {
-        // ვუგზავნით მოთხოვნას შენს Render-ის ბექენდს
-        // (შეცვალე შენი რეალური Render ბექენდის ლინკით, თუ სხვەیە)
-        const response = await fetch("https://insight-ai-backend.onrender.com/api/parse-document/", {
+        // შეიყვანე შენი Render-ის ზუსტი URL
+        const response = await fetch("https://შენი-render-url.onrender.com/api/parse-document/", {
             method: "POST",
             body: formData
         });
@@ -794,29 +790,27 @@
 
         const result = await response.json();
         
-        // 2. ვანახლებთ ეკრანს ბექენდიდან მიღებული მონაცემებით
+        // ეკრანის განახლება
         renderExtractedData(result);
-
-        showToast("AI-მა წარმატებით გააანალიზა დოკუმენტი!", "success");
 
     } catch (error) {
         console.error("Extraction error:", error);
-        showToast("ვერ მოხერხდა სერვერთან დაკავშირება.", "error");
+        alert("ვერ მოხერხდა სერვერთან დაკავშირება ან მოთხოვნამ დააგვიანა.");
     } finally {
-        // ვთიშავთ სკანირების ანიმაციას
+        // აუცილებლად თიშავს სკანერის ანიმაციას
         document.getElementById('scanner-laser').classList.add('hidden');
         document.getElementById('scanner-overlay').classList.add('hidden');
     }
 }
 
-// დამხმარე ფუნქცია ეკრანზე მონაცემების გამოსატანად
 function renderExtractedData(data) {
-    // აქ ხდება ველების ჩასმა HTML-ში
-    document.getElementById('confidence-score').innerText = "99.4%";
+    // Confidence score
+    const confElem = document.getElementById('confidence-score');
+    if (confElem) confElem.innerText = "99.4%";
     
-    // მაგალითად, თუ აქვეა ველების კონტეინერი:
+    // ბარათების შევსება
     const container = document.getElementById('extracted-fields-container');
-    if(container) {
+    if (container) {
         container.innerHTML = `
             <div class="glass-card p-3 rounded-xl">
                 <span class="text-[10px] uppercase text-slate-400 block font-semibold">Document Type</span>
@@ -834,10 +828,34 @@ function renderExtractedData(data) {
                 <span class="text-[10px] uppercase text-slate-400 block font-semibold">Consignee</span>
                 <span class="text-sm font-bold text-white">${data.consignee || 'N/A'}</span>
             </div>
+            <div class="glass-card p-3 rounded-xl">
+                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Vessel / Voyage</span>
+                <span class="text-sm font-bold text-white">${data.vessel_voyage || 'N/A'}</span>
+            </div>
+            <div class="glass-card p-3 rounded-xl">
+                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Total Cost</span>
+                <span class="text-sm font-bold text-emerald-400 font-mono">${data.total_freight_cost || 'N/A'}</span>
+            </div>
         `;
     }
-}
 
+    // ცხრილის (Items) შევსება
+    const tableBody = document.getElementById('line-items-body');
+    if (tableBody) {
+        if (data.items && data.items.length > 0) {
+            tableBody.innerHTML = data.items.map(item => `
+                <tr>
+                    <td class="p-2.5">${item.item_description || 'N/A'}</td>
+                    <td class="p-2.5 font-mono">${item.hs_code || 'N/A'}</td>
+                    <td class="p-2.5 text-right font-mono">${item.qty_weight || 'N/A'}</td>
+                    <td class="p-2.5 text-right font-mono text-emerald-400">${item.decl_value || 'N/A'}</td>
+                </tr>
+            `).join('');
+        } else {
+            tableBody.innerHTML = `<tr><td colspan="4" class="p-2.5 text-center text-slate-500">No items detected</td></tr>`;
+        }
+    }
+}
         // --- TRIGGER FILE UPLOAD ---
         function triggerFileInput() {
             document.getElementById('file-input').click();
