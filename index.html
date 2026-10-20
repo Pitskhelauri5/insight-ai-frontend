@@ -779,7 +779,7 @@
 
     try {
         // შეიყვანე შენი Render-ის ზუსტი URL
-        const response = await fetch("https://შენი-render-url.onrender.com/api/parse-document/", {
+        const response = await fetch("https://insight-ai-backend-vhua.onrender.com", {
             method: "POST",
             body: formData
         });
@@ -913,7 +913,7 @@ function renderExtractedData(data) {
 
             try {
                 // ვგზავნით რეალურ ამოღებულ მონაცემებს ბექენდზე (ან ტესტურ ენდპოინტზე)
-                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document/", {
+                const response = await fetch("https://insight-ai-backend-vhua.onrender.com", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(dataToSync)
