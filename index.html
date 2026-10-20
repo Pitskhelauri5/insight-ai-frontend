@@ -783,7 +783,7 @@
                     formData.append("file", dummyBlob, "sample_document.pdf");
                 }
 
-                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document", {
+                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document/", {
                     method: "POST",
                     body: formData
                 });
@@ -871,7 +871,7 @@
 
             try {
                 // ვგზავნით რეალურ ამოღებულ მონაცემებს ბექენდზე (ან ტესტურ ენდპოინტზე)
-                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document", {
+                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(dataToSync)
