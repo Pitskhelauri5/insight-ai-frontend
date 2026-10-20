@@ -64,7 +64,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
-
+ 
         /* Glassmorphism effects */
         .glass-panel {
             background: rgba(15, 23, 42, 0.65);
@@ -72,38 +72,38 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
+ 
         .glass-panel-accent {
             background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(99, 102, 241, 0.05) 100%);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(6, 182, 212, 0.2);
         }
-
+ 
         .glass-card {
             background: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
+ 
         .glass-card:hover {
             border-color: rgba(6, 182, 212, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
         }
-
+ 
         /* Gradient Borders & Text */
         .text-gradient {
             background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+ 
         .text-gradient-cyan {
             background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+ 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
@@ -119,7 +119,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #334155;
         }
-
+ 
         /* Range Slider Styling */
         input[type=range] {
             -webkit-appearance: none;
@@ -152,7 +152,7 @@
             background: #38bdf8;
             box-shadow: 0 0 20px #38bdf8;
         }
-
+ 
         /* Toast Popup */
         #toast {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -166,7 +166,7 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-brand-cyan selection:text-black">
-
+ 
     <!-- TOP NAVIGATION BAR -->
     <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 px-4 sm:px-8 py-3.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -207,7 +207,7 @@
                     <p class="text-[11px] text-slate-400 font-medium hidden sm:block">Logistics Document Intelligence Engine</p>
                 </div>
             </div>
-
+ 
             <!-- Navigation Tabs -->
             <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800">
                 <button id="tab-btn-demo" onclick="switchTab('demo')" class="flex items-center space-x-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-brand-cyan text-slate-950 shadow-md shadow-cyan-500/20">
@@ -219,7 +219,7 @@
                     <span>Analytics & ROI</span>
                 </button>
             </div>
-
+ 
             <!-- Founder Branding Badge -->
             <div class="hidden lg:flex items-center space-x-3 bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-1.5">
                 <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
@@ -233,13 +233,13 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </div>
-
+ 
         </div>
     </header>
-
+ 
     <!-- MAIN APP CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 flex-grow w-full">
-
+ 
         <!-- ================= SECTION 1: LIVE AI DOCUMENT PARSER ================= -->
         <section id="section-demo" class="space-y-6">
             
@@ -269,7 +269,7 @@
                     </button>
                 </div>
             </div>
-
+ 
             <!-- PARSER INTERFACE GRID -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 
@@ -284,7 +284,7 @@
                                 Ocean Bill of Lading
                             </span>
                         </div>
-
+ 
                         <!-- Drag and Drop Upload Box -->
                         <div id="drop-zone" onclick="triggerFileInput()" class="border-2 border-dashed border-slate-700 hover:border-cyan-500/50 bg-slate-950/40 rounded-xl p-4 text-center cursor-pointer transition-all relative overflow-hidden group">
                             
@@ -296,18 +296,18 @@
                                 <!-- Laser Scanner Overlay -->
                                 <div id="scanner-laser" class="hidden absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#06b6d4] z-20 animate-scan"></div>
                                 <div id="scanner-overlay" class="hidden absolute inset-0 bg-cyan-500/5 z-10 pointer-events-none"></div>
-
+ 
                                 <!-- Simulated Document Text Mock -->
                                 <div id="doc-preview-content" class="space-y-3 opacity-90">
                                     <!-- Dynamic content inserted by JS -->
                                 </div>
                             </div>
-
+ 
                             <p class="text-xs text-slate-400 mt-3 group-hover:text-cyan-400 transition-colors">
                                 <i class="fa-solid fa-cloud-arrow-up mr-1 text-cyan-400"></i> Drop custom PDF/Image or click to simulate upload
                             </p>
                         </div>
-
+ 
                         <!-- Run Extraction Button -->
                         <button onclick="runExtraction()" class="w-full mt-4 py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 shadow-lg shadow-cyan-500/20 flex items-center justify-center space-x-2 transition-all active:scale-[0.99]">
                             <i class="fa-solid fa-bolt-lightning text-slate-950"></i>
@@ -315,7 +315,7 @@
                         </button>
                     </div>
                 </div>
-
+ 
                 <!-- RIGHT PANEL: Extracted Neural Structured Data (7 cols) -->
                 <div class="lg:col-span-7 space-y-4">
                     <div class="glass-panel p-5 rounded-2xl">
@@ -328,7 +328,7 @@
                                 </h3>
                                 <p class="text-xs text-slate-400">Normalized JSON schema ready for ERP integration</p>
                             </div>
-
+ 
                             <div class="flex items-center gap-2">
                                 <div class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
                                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -339,12 +339,12 @@
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- Extracted Data Fields Grid -->
                         <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3" id="extracted-fields-container">
                             <!-- Field cards rendered via JS -->
                         </div>
-
+ 
                         <!-- Cargo Items Table -->
                         <div class="mt-4">
                             <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Line Items / Cargo Breakdown</label>
@@ -364,7 +364,7 @@
                                 </table>
                             </div>
                         </div>
-
+ 
                         <!-- Action Bar: Export & Push to TMS -->
                         <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
                             <div class="flex items-center gap-2">
@@ -375,19 +375,19 @@
                                     <i class="fa-solid fa-file-csv text-emerald-400"></i> Export CSV
                                 </button>
                             </div>
-
+ 
                             <button onclick="sendToTMS()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-indigo-500/20 flex items-center space-x-2 transition-all">
                                 <i class="fa-solid fa-network-wired"></i>
                                 <span>Sync to TMS (CargoWise / SAP)</span>
                             </button>
                         </div>
-
+ 
                     </div>
                 </div>
-
+ 
             </div>
         </section>
-
+ 
         <!-- ================= SECTION 2: ANALYTICS & ROI CALCULATOR ================= -->
         <section id="section-analytics" class="space-y-6 hidden">
             
@@ -403,7 +403,7 @@
                     </p>
                 </div>
             </div>
-
+ 
             <!-- ROI CALCULATOR + METRICS GRID -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 
@@ -412,7 +412,7 @@
                     <h3 class="text-lg font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-sliders text-cyan-400"></i> Operation Parameters
                     </h3>
-
+ 
                     <!-- Slider 1: Document Volume -->
                     <div class="space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
@@ -426,7 +426,7 @@
                             <span>15,000+</span>
                         </div>
                     </div>
-
+ 
                     <!-- Slider 2: Manual Processing Time per doc -->
                     <div class="space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
@@ -440,7 +440,7 @@
                             <span>30 mins</span>
                         </div>
                     </div>
-
+ 
                     <!-- Slider 3: Hourly Wage -->
                     <div class="space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
@@ -454,7 +454,7 @@
                             <span>$60</span>
                         </div>
                     </div>
-
+ 
                     <!-- Current Cost Breakdown Box -->
                     <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
                         <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Estimated Manual Cost</div>
@@ -468,7 +468,7 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- RIGHT: ROI Results & Charts (7 cols) -->
                 <div class="lg:col-span-7 space-y-6">
                     
@@ -483,7 +483,7 @@
                                 <i class="fa-solid fa-arrow-trend-up"></i> <span id="roi-percent">88%</span> Cost Reduction
                             </div>
                         </div>
-
+ 
                         <!-- Time Saved -->
                         <div class="glass-panel p-5 rounded-2xl">
                             <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Hours Saved / Month</div>
@@ -492,7 +492,7 @@
                                 Equivalent to ~3.0 FTEs
                             </div>
                         </div>
-
+ 
                         <!-- Speed Acceleration -->
                         <div class="glass-panel p-5 rounded-2xl">
                             <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Processing Speed</div>
@@ -501,9 +501,9 @@
                                 From 12m down to 3 sec
                             </div>
                         </div>
-
+ 
                     </div>
-
+ 
                     <!-- Comparison Chart (CSS Graphic) -->
                     <div class="glass-panel p-6 rounded-2xl space-y-4">
                         <div class="flex items-center justify-between">
@@ -512,7 +512,7 @@
                             </h4>
                             <span class="text-xs text-slate-400 font-mono">Manual vs Insight AI</span>
                         </div>
-
+ 
                         <div class="space-y-4 pt-2">
                             <!-- Manual Cost Bar -->
                             <div>
@@ -524,7 +524,7 @@
                                     <div id="bar-manual" class="bg-gradient-to-r from-rose-500 to-red-600 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
                                 </div>
                             </div>
-
+ 
                             <!-- Insight AI Cost Bar -->
                             <div>
                                 <div class="flex justify-between text-xs text-slate-300 mb-1">
@@ -536,7 +536,7 @@
                                 </div>
                             </div>
                         </div>
-
+ 
                         <!-- Accuracy & Error Rate Metrics -->
                         <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800/80">
                             <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800/60">
@@ -549,15 +549,15 @@
                             </div>
                         </div>
                     </div>
-
+ 
                 </div>
-
+ 
             </div>
-
+ 
         </section>
-
+ 
     </main>
-
+ 
     <!-- FOOTER -->
     <footer class="border-t border-slate-800/80 glass-panel mt-12 py-4 px-4 sm:px-8">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
@@ -573,7 +573,7 @@
             </div>
         </div>
     </footer>
-
+ 
     <!-- TOAST NOTIFICATION POPUP -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-cyan-500/40 bg-slate-900/95 px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-3 text-xs text-white max-w-md">
         <div id="toast-icon" class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold shrink-0">
@@ -584,7 +584,7 @@
             <div id="toast-msg" class="text-slate-400 text-[11px]">Message text goes here...</div>
         </div>
     </div>
-
+ 
     <!-- JAVASCRIPT APPLICATION LOGIC -->
     <script>
         // --- DATA MOCKS FOR DOCUMENTS ---
@@ -682,22 +682,22 @@
                 speed: "0.32s"
             }
         };
-
+ 
         let currentDocKey = 'bol';
-
+ 
         // Initialize state on load
         window.onload = function() {
             loadSample('bol');
             calculateROI();
         };
-
+ 
         // --- TAB SWITCHER ---
         function switchTab(tab) {
             const demoSec = document.getElementById('section-demo');
             const analyticsSec = document.getElementById('section-analytics');
             const btnDemo = document.getElementById('tab-btn-demo');
             const btnAnalytics = document.getElementById('tab-btn-analytics');
-
+ 
             if(tab === 'demo') {
                 demoSec.classList.remove('hidden');
                 analyticsSec.classList.add('hidden');
@@ -710,32 +710,32 @@
                 btnDemo.className = "flex items-center space-x-2 px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all";
             }
         }
-
+ 
         // --- SAMPLE LOADER ---
         function loadSample(key) {
             currentDocKey = key;
             const doc = SAMPLE_DOCS[key];
-
+ 
             // Update Badge & Preview Text
             document.getElementById('doc-type-badge').innerText = doc.title;
             document.getElementById('doc-preview-content').innerHTML = doc.previewText;
-
+ 
             // Update sample buttons visual state
             document.querySelectorAll('.sample-btn').forEach(btn => {
                 btn.className = "sample-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all";
             });
             event?.target?.classList?.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
             event?.target?.classList?.add('bg-cyan-500/10', 'text-cyan-300', 'border-cyan-500/30');
-
+ 
             // Render extracted structured panel immediately
             renderExtractedData(doc);
         }
-
+ 
         // --- RENDER EXTRACTED DATA FIELDS ---
         function renderExtractedData(doc) {
             document.getElementById('confidence-score').innerText = doc.confidence;
             document.getElementById('extraction-speed').innerText = doc.speed;
-
+ 
             // Fields Grid
             const container = document.getElementById('extracted-fields-container');
             container.innerHTML = doc.fields.map(f => `
@@ -749,7 +749,7 @@
                     </div>
                 </div>
             `).join('');
-
+ 
             // Line Items Table
             const tableBody = document.getElementById('line-items-body');
             tableBody.innerHTML = doc.items.map(item => `
@@ -761,106 +761,64 @@
                 </tr>
             `).join('');
         }
-
+ 
         // --- SIMULATE EXTRACTION ANIMATION ---
        async function runExtraction() {
-    document.getElementById('scanner-laser').classList.remove('hidden');
-    document.getElementById('scanner-overlay').classList.remove('hidden');
-    
-    const fileInput = document.getElementById('file-input');
-    let formData = new FormData();
-    
-    if (fileInput.files.length > 0) {
-        formData.append("file", fileInput.files[0]);
-    } else {
-        const blob = new Blob(["BILL OF LADING\nShipper: Kakheti Wine Export Ltd\nConsignee: Berlin Logistics GmbH\nTotal: $5,400 USD"], { type: "text/plain" });
-        formData.append("file", blob, "sample_bol.txt");
-    }
-
-    try {
-        // შეიყვანე შენი Render-ის ზუსტი URL
-        const response = await fetch("https://insight-ai-backend-vhua.onrender.com", {
-            method: "POST",
-            body: formData
-        });
-
-        if (!response.ok) {
-            throw new Error("სერვერმა დააბრუნა შეცდომა: " + response.status);
+            const laser = document.getElementById('scanner-laser');
+            const overlay = document.getElementById('scanner-overlay');
+ 
+            laser.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+ 
+            showToast("AI OCR Engine Running", "AI ამუშავებს დოკუმენტს...", "info");
+ 
+            try {
+                const fileInput = document.getElementById('file-input');
+                const formData = new FormData();
+ 
+                if (fileInput && fileInput.files.length > 0) {
+                    formData.append("file", fileInput.files[0]);
+                } else {
+                    const dummyBlob = new Blob(["test"], { type: 'text/plain' });
+                    formData.append("file", dummyBlob, "sample_document.pdf");
+                }
+ 
+                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/parse-document", {
+                    method: "POST",
+                    body: formData
+                });
+ 
+                const data = await response.json();
+ 
+                // ვთიშავთ ანიმაციას
+                laser.classList.add('hidden');
+                overlay.classList.add('hidden');
+ 
+                if (data.status === "success") {
+                    showToast("AI Extraction Complete", "მონაცემები წარმატებით დამუშავდა!", "success");
+                    
+                    // 1. ვინახავთ AI-ს მიერ ამოღებულ რეალურ მონაცემებს გლობალურ ცვლადში!
+                    window.lastExtractedData = data.extracted_data;
+ 
+                    // 2. ვანახლებთ მარჯვენა მხარეს არსებულ ველებს
+                    renderExtractedData(data.extracted_data);
+                } else {
+                    showToast("Error", "შეცდომა: " + data.message, "info");
+                }
+ 
+            } catch (error) {
+                console.error("შეცდომა:", error);
+                laser.classList.add('hidden');
+                overlay.classList.add('hidden');
+                showToast("Connection Error", "ვერ მოხერხდა სერვერთან დაკავშირება!", "info");
+            }
         }
-
-        const result = await response.json();
-        
-        // ეკრანის განახლება
-        renderExtractedData(result);
-
-    } catch (error) {
-        console.error("Extraction error:", error);
-        alert("ვერ მოხერხდა სერვერთან დაკავშირება ან მოთხოვნამ დააგვიანა.");
-    } finally {
-        // აუცილებლად თიშავს სკანერის ანიმაციას
-        document.getElementById('scanner-laser').classList.add('hidden');
-        document.getElementById('scanner-overlay').classList.add('hidden');
-    }
-}
-
-function renderExtractedData(data) {
-    // Confidence score
-    const confElem = document.getElementById('confidence-score');
-    if (confElem) confElem.innerText = "99.4%";
-    
-    // ბარათების შევსება
-    const container = document.getElementById('extracted-fields-container');
-    if (container) {
-        container.innerHTML = `
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Document Type</span>
-                <span class="text-sm font-bold text-white">${data.document_type || 'N/A'}</span>
-            </div>
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">B/L Number</span>
-                <span class="text-sm font-bold text-cyan-400 font-mono">${data.r_l_number || 'N/A'}</span>
-            </div>
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Shipper</span>
-                <span class="text-sm font-bold text-white">${data.shipper || 'N/A'}</span>
-            </div>
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Consignee</span>
-                <span class="text-sm font-bold text-white">${data.consignee || 'N/A'}</span>
-            </div>
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Vessel / Voyage</span>
-                <span class="text-sm font-bold text-white">${data.vessel_voyage || 'N/A'}</span>
-            </div>
-            <div class="glass-card p-3 rounded-xl">
-                <span class="text-[10px] uppercase text-slate-400 block font-semibold">Total Cost</span>
-                <span class="text-sm font-bold text-emerald-400 font-mono">${data.total_freight_cost || 'N/A'}</span>
-            </div>
-        `;
-    }
-
-    // ცხრილის (Items) შევსება
-    const tableBody = document.getElementById('line-items-body');
-    if (tableBody) {
-        if (data.items && data.items.length > 0) {
-            tableBody.innerHTML = data.items.map(item => `
-                <tr>
-                    <td class="p-2.5">${item.item_description || 'N/A'}</td>
-                    <td class="p-2.5 font-mono">${item.hs_code || 'N/A'}</td>
-                    <td class="p-2.5 text-right font-mono">${item.qty_weight || 'N/A'}</td>
-                    <td class="p-2.5 text-right font-mono text-emerald-400">${item.decl_value || 'N/A'}</td>
-                </tr>
-            `).join('');
-        } else {
-            tableBody.innerHTML = `<tr><td colspan="4" class="p-2.5 text-center text-slate-500">No items detected</td></tr>`;
-        }
-    }
-}
+ 
         // --- TRIGGER FILE UPLOAD ---
         function triggerFileInput() {
             document.getElementById('file-input').click();
         }
-
+ 
         function handleFileSelect(e) {
             const file = e.target.files[0];
             if(file) {
@@ -875,7 +833,7 @@ function renderExtractedData(data) {
                 runExtraction();
             }
         }
-
+ 
         // --- EXPORT & TMS INTEGRATION ---
         // --- ექსპორტის ფუნქცია (JSON / CSV რეალური მონაცემებით) ---
         function exportData(type) {
@@ -883,44 +841,44 @@ function renderExtractedData(data) {
             const doc = window.lastExtractedData || SAMPLE_DOCS[currentDocKey];
             let content = "";
             let fileName = `insight_ai_extracted_${type}.${type}`;
-
+ 
             if(type === 'json') {
                 content = JSON.stringify(doc, null, 2);
             } else {
                 // CSV ფორმატირება რეალური ველებით
                 content = "Field Label,Value\n" + doc.fields.map(f => `"${f.label}","${f.value}"`).join("\n");
             }
-
+ 
             const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
             link.download = fileName;
             link.click();
-
+ 
             showToast("Export Downloaded", `ჩამოიტვირთა რეალური ${type.toUpperCase()} ფაილი!`, "success");
         }
-
+ 
         // --- TMS სინქრონიზაციის ფუნქცია (CargoWise / SAP) ---
         async function sendToTMS() {
             const dataToSync = window.lastExtractedData;
-
+ 
             if (!dataToSync) {
                 showToast("Sync Warning", "ჯერ ატვირთეთ PDF დოკუმენტი!", "info");
                 return;
             }
-
+ 
             showToast("Syncing with TMS", "გზავნის ამოღებულ მონაცემებს სერვერზე...", "info");
-
+ 
             try {
                 // ვგზავნით რეალურ ამოღებულ მონაცემებს ბექენდზე (ან ტესტურ ენდპოინტზე)
-                const response = await fetch("https://insight-ai-backend-vhua.onrender.com", {
+                const response = await fetch("https://insight-ai-backend-vhua.onrender.com/api/sync-tms", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(dataToSync)
                 });
-
+ 
                 const result = await response.json();
-
+ 
                 if (result.status === "success") {
                     showToast("TMS Sync Success", "მონაცემები წარმატებით დარეგისტრირდა TMS-ში!", "success");
                 } else {
@@ -934,7 +892,7 @@ function renderExtractedData(data) {
                 }, 1000);
             }
         }
-
+ 
         // --- EDIT FOUNDER NAME ---
         function editFounderName() {
             const current = document.getElementById('founder-name-display').innerText;
@@ -944,57 +902,57 @@ function renderExtractedData(data) {
                 showToast("Branding Updated", `Demo customized for ${newName.trim()}`, "success");
             }
         }
-
+ 
         // --- ROI CALCULATOR ENGINE ---
         function calculateROI() {
             const volume = parseInt(document.getElementById('input-volume').value);
             const timePerDocMin = parseInt(document.getElementById('input-time').value);
             const wage = parseInt(document.getElementById('input-wage').value);
-
+ 
             // Update UI Slider labels
             document.getElementById('volume-val').innerText = `${volume.toLocaleString()} docs`;
             document.getElementById('time-val').innerText = `${timePerDocMin} mins`;
             document.getElementById('wage-val').innerText = `$${wage} / hr`;
-
+ 
             // Calculations
             const manualHours = (volume * timePerDocMin) / 60;
             const manualCost = manualHours * wage;
-
+ 
             // Insight AI assumptions (30 sec per doc, $0.25 API cost per doc + base subscription)
             const aiHours = (volume * 0.5) / 60; 
             const aiCost = (volume * 0.22) + 499; // base tier + volume pricing
-
+ 
             const netSavings = Math.max(0, manualCost - aiCost);
             const hoursSaved = Math.max(0, manualHours - aiHours);
             const percentSaved = Math.round((netSavings / manualCost) * 100) || 0;
-
+ 
             // Render Results
             document.getElementById('calc-hours-manual').innerText = `${Math.round(manualHours).toLocaleString()} hrs/mo`;
             document.getElementById('calc-manual-cost').innerText = `$${Math.round(manualCost).toLocaleString()} / mo`;
-
+ 
             document.getElementById('roi-monthly-savings').innerText = `$${Math.round(netSavings).toLocaleString()}`;
             document.getElementById('roi-hours-saved').innerText = `${Math.round(hoursSaved).toLocaleString()} hrs`;
             document.getElementById('roi-percent').innerText = `${percentSaved}%`;
-
+ 
             document.getElementById('bar-manual-label').innerText = `$${Math.round(manualCost).toLocaleString()}`;
             document.getElementById('bar-ai-label').innerText = `$${Math.round(aiCost).toLocaleString()}`;
-
+ 
             // Relative Chart Bars
             const maxVal = Math.max(manualCost, aiCost);
             const manualWidth = Math.min(100, Math.max(10, (manualCost / maxVal) * 100));
             const aiWidth = Math.min(100, Math.max(5, (aiCost / maxVal) * 100));
-
+ 
             document.getElementById('bar-manual').style.width = `${manualWidth}%`;
             document.getElementById('bar-ai').style.width = `${aiWidth}%`;
         }
-
+ 
         // --- TOAST NOTIFIER HELPER ---
         function showToast(title, msg, type = "success") {
             const toast = document.getElementById('toast');
             const icon = document.getElementById('toast-icon');
             document.getElementById('toast-title').innerText = title;
             document.getElementById('toast-msg').innerText = msg;
-
+ 
             if(type === 'success') {
                 icon.className = "w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm font-bold shrink-0";
                 icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
@@ -1002,7 +960,7 @@ function renderExtractedData(data) {
                 icon.className = "w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold shrink-0";
                 icon.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i>';
             }
-
+ 
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
